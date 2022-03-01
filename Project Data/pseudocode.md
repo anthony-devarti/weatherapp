@@ -11,13 +11,15 @@ Make an error case behavior.  this should not be visible by default.  ""Oops!  t
 
 make an h1 organism that contains the title, a field to enter the zip code, and a button to get the weather.  This should always be visible.  
 
-    the field should validate that the postal code being entered is correct.
+    the field should validate that the postal code being entered is valid.
 
     the buttons should read "Go" and "My location".  The first one will grab the weather based on the postal code.  trap for onSubmit failure "prevent default".  DONT USE A FORM FIELD. and the my location button will base it on your lat and long
 
     The Title should be stationary text at the top of the screen.  No need for it to do anything.
 
     This needs a procedure to clear previous information with a new zip code.  onFocus lets you trap for new zip codes being entered.
+
+empty fields show on success (async await)
 
 ##Backend
 

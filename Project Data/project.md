@@ -99,3 +99,5 @@ Share links and resources from this week to the Help slack channel.
 
 API for weather:
     api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={b18094427e022579a39c568a994093a0}
+
+    https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid=b18094427e022579a39c568a994093a0
