@@ -11,40 +11,45 @@ Use the wireframes provided to recreate the User Interface.  Try to deliver the 
 Weather App
 REQUIREMENTS
 To complete the assignment, you must complete the following:
+
 Allow the user to enter their location (zip code is probably easiest) and press a button to load the weather.
+
 Run an onClick or onSubmit that executes an Axios GET request to retrieve weather data from the API.
+
 If the request is successful, display the following in a 'mobile app' format:
-City name
-Current weather conditions
-Current temperature in Kelvin, Fahrenheit, and Celsius
+    City name
+    Current weather conditions
+    Current temperature in Kelvin, Fahrenheit, and Celsius
+
 A unique image, decided by the current temperature (The API has icons built-in, be sure to read the docs)
+
 If the request is unsuccessful, display a specific error message such as "Invalid Zip Code" or anything else that might come back from the API.
+200 means that the data call was good, even if there's an error.  400 means that the call was invalid.
+
 Allow the user to continue entering new zip codes to get new weather data.
-Remember to push to GitHub!
-Potential employers will view your GitHub profile, so activity is crucial!
+
+
+
 STRETCH GOALS
-Get weather based on location data (no need for user input).
-Store Multiple Locations for weather data.
-Save the location data and/or weather data in LocalStorage.
-Use more data provided by the API (forecast data, historical data, daily change in weather, etc.)
-Use JS to render the entire app (only have a single <div id='main'></div> in the body of your index.html).
-Keep track of the users' current page if they accidentally refresh using LocalStorage
-Tip: See additional resources.
-Dynamically generate content using JavaScript
-Tip: Initialize, BuildUI, Start would be a good start to doing everything in JS
-Dynamically change CSS with JavaScript
-Tip: Alter a css property of a dynamic or static element
-PROCESS
-Tech Stack
-HTML
-CSS
-Bootstrap
-JavaScript
-Setup
-Create a new GitHub repo and name it ‘weather-app’.
-Create necessary files for the application in your terminal and view and modify them in your editor.
-Import and route necessary css/js files (E.g. Bootstrap, main.js, style.css).
-Save all and create your first commit to main, then create and switch to a ‘dev’ branch.
+    Get weather based on location data (no need for user input). 
+        (related to geolocation)
+    Store Multiple Locations for weather data.
+        array/state store the results of what comes back.  Goes away on refresh.
+    Save the location data and/or weather data in LocalStorage.
+        Big stretch
+    Use more data provided by the API (forecast data, historical data, daily change in weather, etc.)
+
+    Use JS to render the entire app (only have a single <div id='main'></div> in the body of your index.html).
+        probably should be the start point to limit the amount of  html I can mess up.
+        init function that builds the ui.
+    Keep track of the users' current page if they accidentally refresh using LocalStorage
+        big stretch
+        Tip: See additional resources.
+    Dynamically generate content using JavaScript
+        Tip: Initialize, BuildUI, START would be a good start to doing everything in JS
+    Dynamically change CSS with JavaScript
+        Tip: Alter a css property of a dynamic or static element
+
 Application File Structure
 repo/
     index.html - your main page
