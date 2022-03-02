@@ -97,3 +97,15 @@ function error() {
     builds an element on the page that displays an error and has a user friendly message.
     ok button should remove the message.
 }
+
+function update() {
+    some sort of update function that tries to set the state of the weatherObject from empty to the correct state
+}
+
+backgroundUpdater() {
+    case switch for condition and pushes different instructions to css page based on condition
+}
+
+addData(object) {
+    data.push(object)
+}
