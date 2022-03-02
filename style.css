@@ -6,6 +6,8 @@ body {
     align-items: center;
     background: linear-gradient(rgb (47, 150, 163));
     font-family: sans-serif;
-    color: white;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(rgb(10, 10, 212), rgb(140, 200, 240)); /*maybe this can change based on the weather output?*/
 
 }
+

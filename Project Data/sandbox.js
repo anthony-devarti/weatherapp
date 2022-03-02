@@ -8,7 +8,7 @@ let tempC = '0';
 let userZip
 let appID = 'b18094427e022579a39c568a994093a0'
 //this should allow the lat, lon, and app ID to be added in via variables, rather than typed into the url
-let weatherLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${appID}`;
+let weatherLink = `https://api.openweathermap.org/data/2.5/onecall?zip=40502&exclude=minutely,hourly,daily,alerts&appid=${appID}`;
 //set the temperature variable to fill in the temerature box
 let temperature = document.querySelector(".temperature")
 //make this the thing that isn't innerHTML

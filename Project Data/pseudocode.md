@@ -48,7 +48,7 @@ condition:
 ]
 
 use querySelector? to print these properties into their appropriate fields on the page.
-have all of the fields visible in 
+have all of the fields visible in the weatherObject
 
 let tempCelsius
 function makeCelsius(){
@@ -62,6 +62,7 @@ function makeKelvin(){
 
 function clearFields(){
     reset the weatherFields object to defaults
+    hide() the other elements when I clear fields so the user doesn't see the work 
     //this will be invoked when the user reselects the zip code field using an event listener
 }
 
@@ -83,3 +84,16 @@ function findCity(userInput) {
 
 if time to complete > 30000ms && zipcode === field, second error page explaining why they did a bad thing.
 
+https://developer.mozilla.org/en-US/docs/Web/API/Response/Response (is this relevant towards the goal of making the response I get from the api into something usable?)
+
+async function getWeather() {
+      let response = await axios.get(weatherLink)
+      console.log(response);
+      weatherObject = await response.data;
+
+      this should get the data I need to push into the appropriate fields.  there should be a catch here with an error function call
+
+function error() {
+    builds an element on the page that displays an error and has a user friendly message.
+    ok button should remove the message.
+}
