@@ -1,12 +1,13 @@
 //define some variables that I need later
 let weatherObject = [];
-let lat=85.04
-let lon=84.50
+let lat=85.04 //this is a placeholder and should be replaced with user input
+let lon=84.50 //this is also a placeholder
 let tempF
 let tempK
 let tempC = '0';
 let userZip
 let appID = 'b18094427e022579a39c568a994093a0'
+//this should allow the lat, lon, and app ID to be added in via variables, rather than typed into the url
 let weatherLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,daily,alerts&appid=${appID}`;
 //set the temperature variable to fill in the temerature box
 let temperature = document.querySelector(".temperature")
@@ -23,7 +24,7 @@ async function getWeather() {
     //explains what the function is waiting for
       let response = await axios.get(weatherLink)
       console.log(response);
-      weatherObject.data = response;
+      weatherObject = await response.data;
 }
 
 getWeather();
