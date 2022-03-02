@@ -1,11 +1,12 @@
 //define some variables that I need later
-let weatherObject = [{
-  "city":"",
-  "tempK":"",
-  "condition": ""
+// let weatherObject = [{
+//   "city":"",
+//   "tempK":"",
+//   "condition": ""
 
-}];
+// }];
 let city
+let condition
 //lat and lon probably won't be needed
 // let lat=85.04 //this is a placeholder and should be replaced with user input
 // let lon=84.50 //this is also a placeholder
@@ -37,17 +38,30 @@ async function getWeather() {
       console.log(city)
       tempK = response.data.main.temp;
       console.log(tempK);
+      //Need to pull the condition next
+      // condition = response.data.main.weather.description; //work on making this save something valid to the condition variable
+      // console.log(condition);
+      //lets push these values into their right positions on the webpage
+      let userCity = document.getElementById("city")
+      userCity.textContent =  city;//this needs to be replaced by the value of the city variable, which is kg
+      //push in the condition
+      let newCondition = document.getElementById("condition")
+      newCondition.textContent = 'This is where the condition gets pushed'
   } catch (error) {
-    console.error('Oh no! It looks like things are moving too slowly. Try again in a minute.')
+    console.error('error')
   }
-      //everything below this line is experimental.  I want to get the info out of the response and into the variables
+    
       
 }
 
-//lets push these values into their right positions on the webpage
+getWeather();  //this is not running before the declarations below it.  Maybe because they aren't functions 
+
+//push in the temperatures
+
+//other info goes here
+let otherInfo = document.getElementById("other");
+otherInfo.innerText = 'text about the weather'
 
 
-
-getWeather();
 //addData();
 //update();
