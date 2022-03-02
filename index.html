@@ -9,31 +9,19 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- <div class="location">
-        <h1 class="location-city">City Name</h1>
-    </div>
-    <div class="temperature">
-        <div class="degree-section">
-            <h2 class="temperature-degree"></h2>
-            <span>F</span>
-        </div>
-        This is where I would put the field that describes the temperature in a human way
-            <div class="temperature-description">I don't know how to feel</div>
-    </div> -->
     <h1 class="title m-3">Weather App</h1>
 
     <div class="text-center">
         <div class="card m-1=5">
-            <h5 class="card-header">Your Location</h5>
+            <h5 class="card-header">Choose Your Location</h5>
             <div class="card-body">
                 <form class="form-inline">
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="zip" class="sr-only">Zip Code</label>
-                            <input type="zip" class="form-control" id="zip" placeholder="90210">
+                            <input type="zip" class="form-control" form name="zip" id="zip" placeholder="90210">
                         </div>
                         <div class="button">
-                            <button type="submit" class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Use My Location</button>
+                            <button type="go" onclick="submitzip(this.form)"class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Find Me</button>
                         </div>
                 </form>
             </div>
@@ -41,7 +29,7 @@
     </div> 
 
 
-    <div class="text-center">
+    <div class="text-center min-width: 80%"> <!--Why is this shrinking the width down?-->
         <div class="card m-3">
             <h5 class="card-header">City</h5>
             <div class="card-body">

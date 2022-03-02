@@ -12,7 +12,7 @@ let appID = 'b18094427e022579a39c568a994093a0'
 let weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
 
 
-
+//submitZip function should excecute on click and grab the zip from the entry form
 
 //function noted as async right at the top
 async function getWeather() {
@@ -25,18 +25,7 @@ async function getWeather() {
       tempK = response.data.main.temp;
       description = response.data.weather[0].description;
       condition = response.data.weather[0].main;
-      let userCity = document.getElementById("city")
-      userCity.textContent =  city;
-      let tempKelvin = document.getElementById("kelvin")
-      tempKelvin.textContent = Math.floor(tempK) + ' K'
-      let tempFaren = document.getElementById("farenheit")
-      tempFaren.textContent = Math.floor((tempK-273.15)*(9/5)+32)+ ' F'
-      let tempCels = document.getElementById('celsius')
-      tempCels.textContent = Math.floor(tempK-273.15) + ' C';
-      let newCondition= document.getElementById("condition");
-      newCondition.textContent = condition;
-      let otherInfo = document.getElementById("other");
-      otherInfo.innerText = description
+      pushText();
       console.log(city)
       console.log(description);
       console.log(condition);
@@ -46,23 +35,28 @@ async function getWeather() {
     
       
 }
+function submit(){
+  //fill in the zip code value
+  getWeather();  //this is not running before the declarations below it.  Maybe because they aren't functions 
+  }
 
-getWeather();  //this is not running before the declarations below it.  Maybe because they aren't functions 
-
-
+//this is bad.  Figure this out better
+function submit() {
+  userZip = this.form;
+  console.log(userZip)
+}
 
 function pushText() {
   let userCity = document.getElementById("city")
   userCity.textContent =  city;
   let tempKelvin = document.getElementById("kelvin")
-  tempKelvin.textContent = tempK + ' K'
+  tempKelvin.textContent = Math.floor(tempK) + ' K'
   let tempFaren = document.getElementById("farenheit")
   tempFaren.textContent = Math.floor((tempK-273.15)*(9/5)+32)+ ' F'
   let tempCels = document.getElementById('celsius')
   tempCels.textContent = Math.floor(tempK-273.15) + ' C';
-  //push in the description
-  let newDescription = document.getElementById("description")
-  newDescription.textContent = description;
+  let newCondition= document.getElementById("condition");
+  newCondition.textContent = condition;
   let otherInfo = document.getElementById("other");
-  otherInfo.innerText = 'text about the weather'
+  otherInfo.innerText = description
 }
