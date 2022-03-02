@@ -1,11 +1,11 @@
-#Weather App Pseudocode
+# Weather App Pseudocode
 Page 1- what does the empty page look like the first time you view it?  Empty
 Display and hide elements via js as the user progresses through the app
     something that appears when you have an error.  Does it always exist or is it created on error.
     *probably want to have the error case be something simple, like a red cue or a head shake.
 
 
-##Frontend
+## user interface
 
 Make an error case behavior.  this should not be visible by default.  ""Oops!  that postal code isn't working." Toast in the negative space beneath the h1 organism
 
@@ -13,7 +13,7 @@ make an h1 organism that contains the title, a field to enter the zip code, and 
 
     the field should validate that the postal code being entered is valid.
 
-    the buttons should read "Go" and "My location".  The first one will grab the weather based on the postal code.  trap for onSubmit failure "prevent default".  DONT USE A FORM FIELD. and the my location button will base it on your lat and long
+    the buttons should read "Go" and "Use My location".  The first one will grab the weather based on the postal code.  trap for onSubmit failure "prevent default".  DONT USE A FORM FIELD. and the my location button will base it on your lat and long
 
     The Title should be stationary text at the top of the screen.  No need for it to do anything.
 
@@ -21,13 +21,64 @@ make an h1 organism that contains the title, a field to enter the zip code, and 
 
 empty fields show on success (async await)
 
-##Backend
+create a div with the following fields
+
+City
+city name should be based on longitude and latitude or zip code, whichever ends up being fewer lines
+
+temperature
+should display in kelvin, farenheit, and celsius.  The first is probably going to be the default.  the makeKelvin function and makeCelsius function can take the temperature variable and transform them appropriately.
+
+----------------------------------------------------------------------------
 
 
+## logic and JS
+
+take the properties of weatherObject and move them into the appropriate properties of weatherFields
+
+weatherFields=[
 zipcode: "https://www.w3schools.com/jsref/event_onchange.asp"
 hasError: true?false
 city: City Name
 Temperature: in Farenheit
+temperature: in Kelvin
+temperature: in celsius
 condition: 
+]
+
+use querySelector? to print these properties into their appropriate fields on the page.
+have all of the fields visible in 
+
+let tempCelsius
+function makeCelsius(){
+    tempCelsius = tempFarenheit - 32 * (5/9)
+}
+
+let tempKelvin
+function makeKelvin(){
+    tempKelvin = tempCelsius + 273.15 
+}
+
+let userZip
+function zipLocation(){
+some function that checks the zip code and returns a latitude and longitude
+lat = something
+lon = something
+}
+
+function clearFields(){
+    reset the weatherFields object to defaults
+    //this will be invoked when the user reselects the zip code field using an event listener
+}
+
+eventlistener on click for button
+
+//hide and show functions for elements that I want to appear conditionally
+function hide(id){
+    document.getElementById(id).style.display="none"
+}
+
+function reveal(id) {
+    document.getElementById(id).style.display="block"
 
 if < 30000 && zipcode === field, second error page explaining why they did a bad thing.
