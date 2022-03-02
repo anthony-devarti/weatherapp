@@ -43,10 +43,16 @@ async function getWeather() {
       // console.log(condition);
       //lets push these values into their right positions on the webpage
       let userCity = document.getElementById("city")
-      userCity.textContent =  city;//this needs to be replaced by the value of the city variable, which is kg
-      //push in the condition
-      let newCondition = document.getElementById("condition")
-      newCondition.textContent = 'This is where the condition gets pushed'
+      userCity.textContent =  city;
+      let tempKelvin = document.getElementById("kelvin")
+      tempKelvin.textContent = tempK + ' K'
+      let tempFaren = document.getElementById("farenheit")
+      tempFaren.textContent = Math.floor((tempK-273.15)*(9/5)+32)+ ' F'
+      let tempCels = document.getElementById('celsius')
+      tempCels.textContent = Math.floor(tempK-273.15) + ' C';
+      //push in the description
+      let newDescription = document.getElementById("condition")
+      newDescription.textContent = 'This is where the description gets pushed'
   } catch (error) {
     console.error('error')
   }
