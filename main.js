@@ -40,6 +40,7 @@ async function getWeather() {
 
 document.getElementById("go").addEventListener("click", submit);
 
+
 function submit() {
   document.getElementById("error").style.display="none";
   userZip = document.getElementById('zip').value; //why is this not redefining the userZip variable?
@@ -49,7 +50,16 @@ function submit() {
 }
 
 function pullUp(){
-  document.getElementById("results").style.display="none";
+  document.getElementById("result").style.display="none";
+  console.log('pullup');
+  city='';
+  condition='';
+  weatherIcon='';
+  tempK='';
+  userZip = '';
+  lat='';
+  lon='';
+  //bgUpdate();
 }
 
 function pushText() {
@@ -69,4 +79,41 @@ function pushText() {
 
 function whoopsie(){
   document.getElementById("error").style.display="block";
+}
+
+//make a function to change the background color based on the weather icon
+// function bgUpdate(){
+// if (weatherIcon==='10d'||'02d') {
+//   //change css to yellow/sunny
+//   console.log("i'm trying to change the color")
+//   document.body.style.backgroundImage="linear-gradient(rgb(212, 131, 10), rgb(140, 200, 240))";
+// } else if (weatherIcon==='03d'||'04d'||'50d') {
+//   //change css to grey/overcast
+//   document.body.style.backgroundImage="linear-gradient(rgb(46,46,46), rgb(140, 200, 240))"
+// } else if (weatherIcon==='09d'||'10d'||'11d'||'13d') {
+//   //change css to blue/precipitation
+// }
+// }
+
+switch (weatherIcon) {
+  case '': document.body.className=''
+    break;
+  case '01d': document.body.className='clearsky'
+    break;
+  case '02d': document.body.className='fewcloud'
+    break;
+  case '03d': document.body.className='scatteredclouds'
+    break;
+  case '04d': document.body.className='brokenclouds'
+    break;
+  case '09d': document.body.className='showerrain'
+    break;
+  case '10d': document.body.className='rain'
+    break;
+  case '11d': document.body.className='thunderstorm'
+    break;
+  case '13d': document.body.className='snow'
+    break;
+  case '50d': document.body.className='mist'
+    break;
 }

@@ -6,7 +6,7 @@ body {
     align-items: center;
     font-family: sans-serif;
     color: rgb(0, 0, 0);
-    background-image: linear-gradient(rgb(10, 10, 212), rgb(140, 200, 240)); /*maybe this can change based on the weather output?*/
+    background-image: linear-gradient(rgb(76, 76, 138), rgb(255, 255, 255)); /*maybe this can change based on the weather output?*/
 
 }
 
@@ -29,4 +29,40 @@ h1 {
 
 #result {
     display:none;
+}
+
+.clearsky{
+    background-image: linear-gradient(rgb(245, 226, 61), white);
+}
+
+.fewcloud{
+    background-image: linear-gradient(rgb(136, 161, 185), white);
+}
+
+.scatteredclouds{
+    background-image: linear-gradient(rgb(143, 137, 85), white);
+}
+
+.brokenclouds{
+    background-image: linear-gradient(rgb(151, 147, 113), white);
+}
+
+.showerrain {
+    background-image: linear-gradient(rgb(99, 107, 226), white);
+}
+
+.rain{
+    background-image: linear-gradient(rgb(61, 79, 245), white);
+}
+
+.thunderstorm{
+    background-image: linear-gradient(rgb(22, 0, 121), white);
+}
+
+.snow{
+    background-image: linear-gradient(rgb(82, 155, 240), white);
+}
+
+.mist{
+    background-image: linear-gradient(rgb(70, 69, 68), white);
 }
