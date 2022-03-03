@@ -1,6 +1,6 @@
 let city
 let condition
-let description
+let weatherIcon
 let tempK //this will be set by the result
 let tempC = tempK-273.15; //this will be set by a function after the result
 let tempF = tempC*(9/5)+32;//this will be set by a function after the result
@@ -23,15 +23,17 @@ async function getWeather() {
       weatherObject = await response.json;
       city = response.data.name
       tempK = response.data.main.temp;
-      description = response.data.weather[0].description;
+      weatherIcon = response.data.weather[0].icon;
       condition = response.data.weather[0].main;
       pushText();
+      document.getElementById("result").style.display="block";
       console.log(city)
-      console.log(description);
+      console.log(weatherIcon);
       console.log(condition);
   } catch (error) {
-    console.error('error')
+    console.error('error');
     //error function should go in here as well
+    whoopsie();
   }
 }
 
@@ -39,10 +41,15 @@ async function getWeather() {
 document.getElementById("go").addEventListener("click", submit);
 
 function submit() {
+  document.getElementById("error").style.display="none";
   userZip = document.getElementById('zip').value; //why is this not redefining the userZip variable?
   weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
   console.log(userZip)
   getWeather();
+}
+
+function pullUp(){
+  document.getElementById("results").style.display="none";
 }
 
 function pushText() {
@@ -57,9 +64,9 @@ function pushText() {
   let newCondition= document.getElementById("condition");
   newCondition.textContent = condition;
   let otherInfo = document.getElementById("other");
-  otherInfo.innerText = description
+  otherInfo.innerHTML = "<img src='https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png'></img>";
 }
 
 function whoopsie(){
-  
+  document.getElementById("error").style.display="block";
 }

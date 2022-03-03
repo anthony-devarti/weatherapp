@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="form-group mx-sm-3 mb-2">
                     <label for="zip" class="sr-only">Zip Code</label>
-                    <input type="text" class="input" input name="zip" id="zip" placeholder="50210">
+                    <input type="text" onfocus="myFunction()" class="input" input name="zip" id="zip" placeholder="50210">
                 </div>
                 <div class="button">
                     <button type="submit" id="go" class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Find Me</button>
@@ -25,9 +25,9 @@
             </div>
         </div>
     </div> 
-    <div class="alert alert-warning mt-3" role="alert">Please enter a valid zip code.</div>
+    <div class="alert alert-warning mt-3" id="error" role="alert">Please enter a valid zip code.</div>
 
-    <div class="text-center mw-80">
+    <div id="result" class="text-center mw-80">
         <div class="card m-3">
             <h5 class="card-header">City</h5>
             <div class="card-body">
