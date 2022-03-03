@@ -18,3 +18,7 @@ h1 {
     font-size: 40px;
     font-family: sans-serif;
 }
+
+.card {
+    min-width: 400px;
+}
