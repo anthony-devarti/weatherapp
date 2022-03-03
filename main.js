@@ -19,7 +19,7 @@ async function getWeather() {
   try{
     //explains what the function is waiting for
       let response = await axios.get(weatherLink)
-      console.log(response);
+      //console.log(response);
       weatherObject = await response.json;
       city = response.data.name
       tempK = response.data.main.temp;
@@ -27,9 +27,10 @@ async function getWeather() {
       condition = response.data.weather[0].main;
       pushText();
       document.getElementById("result").style.display="block";
-      console.log(city)
-      console.log(weatherIcon);
-      console.log(condition);
+      //console.log(city)
+      //console.log(weatherIcon);
+      //console.log(condition);
+      bgUpdate();
   } catch (error) {
     console.error('error');
     //error function should go in here as well
@@ -54,12 +55,12 @@ function pullUp(){
   console.log('pullup');
   city='';
   condition='';
-  weatherIcon='';
+  weatherIcon='none';
   tempK='';
   userZip = '';
   lat='';
   lon='';
-  //bgUpdate();
+  bgUpdate();
 }
 
 function pushText() {
@@ -95,25 +96,27 @@ function whoopsie(){
 // }
 // }
 
-switch (weatherIcon) {
-  case '': document.body.className=''
-    break;
-  case '01d': document.body.className='clearsky'
-    break;
-  case '02d': document.body.className='fewcloud'
-    break;
-  case '03d': document.body.className='scatteredclouds'
-    break;
-  case '04d': document.body.className='brokenclouds'
-    break;
-  case '09d': document.body.className='showerrain'
-    break;
-  case '10d': document.body.className='rain'
-    break;
-  case '11d': document.body.className='thunderstorm'
-    break;
-  case '13d': document.body.className='snow'
-    break;
-  case '50d': document.body.className='mist'
-    break;
+function bgUpdate(){
+  switch (weatherIcon) {
+    case '01d': document.getElementById('background').style.backgroundImage="linear-gradient(rgb(245, 202, 61), white)"
+      break;
+    case '02d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(136, 161, 185), white)'
+      break;
+    case '03d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(65, 93, 95), white)'
+      break;
+    case '04d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(143, 188, 209), white)';
+      break;
+    case '09d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(99, 107, 226), white)'
+      break;
+    case '10d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(61, 79, 245), white)'
+      break;
+    case '11d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(22, 0, 121), white)'
+      break;
+    case '13d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(82, 155, 240), white)'
+      break;
+    case '50d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(70, 69, 68), white)'
+      break;
+    case 'none': document.getElementById('background').style.backgroundImage="linear-gradient(rgb(138, 76, 117), rgb(255, 255, 255))"
+  };
+  console.log('this is running')
 }
