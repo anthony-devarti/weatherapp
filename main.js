@@ -50,6 +50,38 @@ function submit() {
   getWeather();
 }
 
+//Find Me Button
+document.getElementById("geo").addEventListener("click", getGeo);
+function getGeo(){
+  var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  function success(pos) {
+    var crd = pos.coords;
+
+    console.log('Your current position is:');
+    console.log(`Latitude : ${crd.latitude}`);
+    console.log(`Longitude: ${crd.longitude}`);
+    console.log(`More or less ${crd.accuracy} meters.`);
+    lat=crd.latitude;
+    lon=crd.longitude;
+    weatherLink = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${appID}`
+    getWeather();    
+  }
+
+  function error(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+
+  navigator.geolocation.getCurrentPosition(success, error, options);
+
+  
+};
+
 function pullUp(){
   document.getElementById("result").style.display="none";
   console.log('pullup');
