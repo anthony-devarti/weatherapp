@@ -4,11 +4,11 @@ let description
 let tempK //this will be set by the result
 let tempC = tempK-273.15; //this will be set by a function after the result
 let tempF = tempC*(9/5)+32;//this will be set by a function after the result
-let userZip = 40502; //change to 0 to make it an empty value
+let userZip = ''; //change to 0 to make it an empty value
 let appID = 'b18094427e022579a39c568a994093a0'
-//lat and lon probably won't be needed
-// let lat=85.04 //this is a placeholder and should be replaced with user input
-// let lon=84.50 //this is also a placeholder
+//lat and lon will only be set by the geolocator.  They may not end up needing to have their own variable.
+let lat=85.04 //this is a placeholder and should be replaced with user input
+let lon=84.50 //this is also a placeholder
 let weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
 
 
@@ -31,32 +31,35 @@ async function getWeather() {
       console.log(condition);
   } catch (error) {
     console.error('error')
+    //error function should go in here as well
   }
-    
-      
 }
-function submit(){
-  //fill in the zip code value
-  getWeather();  //this is not running before the declarations below it.  Maybe because they aren't functions 
-  }
 
-//this is bad.  Figure this out better
+
+document.getElementById("go").addEventListener("click", submit);
+
 function submit() {
-  userZip = this.form;
+  userZip = document.getElementById('zip').value; //why is this not redefining the userZip variable?
+  weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
   console.log(userZip)
+  getWeather();
 }
 
 function pushText() {
   let userCity = document.getElementById("city")
   userCity.textContent =  city;
   let tempKelvin = document.getElementById("kelvin")
-  tempKelvin.textContent = Math.floor(tempK) + ' K'
+  tempKelvin.textContent = Math.floor(tempK) + '°' + ' K'
   let tempFaren = document.getElementById("farenheit")
-  tempFaren.textContent = Math.floor((tempK-273.15)*(9/5)+32)+ ' F'
+  tempFaren.textContent = Math.floor((tempK-273.15)*(9/5)+32)+ '°' + ' F'
   let tempCels = document.getElementById('celsius')
-  tempCels.textContent = Math.floor(tempK-273.15) + ' C';
+  tempCels.textContent = Math.floor(tempK-273.15) +'°' + ' C';
   let newCondition= document.getElementById("condition");
   newCondition.textContent = condition;
   let otherInfo = document.getElementById("other");
   otherInfo.innerText = description
+}
+
+function whoopsie(){
+  
 }

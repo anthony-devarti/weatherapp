@@ -15,21 +15,19 @@
         <div class="card m-1=5">
             <h5 class="card-header">Choose Your Location</h5>
             <div class="card-body">
-                <form class="form-inline">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="zip" class="sr-only">Zip Code</label>
-                            <input type="zip" class="form-control" form name="zip" id="zip" placeholder="90210">
-                        </div>
-                        <div class="button">
-                            <button type="go" onclick="submitzip(this.form)"class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Find Me</button>
-                        </div>
-                </form>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="zip" class="sr-only">Zip Code</label>
+                    <input type="text" class="input" input name="zip" id="zip" placeholder="50210">
+                </div>
+                <div class="button">
+                    <button type="submit" id="go" class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Find Me</button>
+                </div>
             </div>
         </div>
     </div> 
+    <div class="alert alert-warning mt-3" role="alert">Please enter a valid zip code.</div>
 
-
-    <div class="text-center mw-80"> <!--Why is this shrinking the width down?-->
+    <div class="text-center mw-80">
         <div class="card m-3">
             <h5 class="card-header">City</h5>
             <div class="card-body">
