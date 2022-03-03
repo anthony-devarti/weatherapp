@@ -19,7 +19,7 @@ async function getWeather() {
   try{
     //explains what the function is waiting for
       let response = await axios.get(weatherLink)
-      console.log(response);
+      //console.log(response);
       weatherObject = await response.json;
       city = response.data.name
       tempK = response.data.main.temp;
@@ -27,9 +27,10 @@ async function getWeather() {
       condition = response.data.weather[0].main;
       pushText();
       document.getElementById("result").style.display="block";
-      console.log(city)
-      console.log(weatherIcon);
-      console.log(condition);
+      //console.log(city)
+      //console.log(weatherIcon);
+      //console.log(condition);
+      bgUpdate();
   } catch (error) {
     console.error('error');
     //error function should go in here as well
@@ -40,6 +41,7 @@ async function getWeather() {
 
 document.getElementById("go").addEventListener("click", submit);
 
+
 function submit() {
   document.getElementById("error").style.display="none";
   userZip = document.getElementById('zip').value; //why is this not redefining the userZip variable?
@@ -49,7 +51,16 @@ function submit() {
 }
 
 function pullUp(){
-  document.getElementById("results").style.display="none";
+  document.getElementById("result").style.display="none";
+  console.log('pullup');
+  city='';
+  condition='';
+  weatherIcon='none';
+  tempK='';
+  userZip = '';
+  lat='';
+  lon='';
+  bgUpdate();
 }
 
 function pushText() {
@@ -69,4 +80,43 @@ function pushText() {
 
 function whoopsie(){
   document.getElementById("error").style.display="block";
+}
+
+//make a function to change the background color based on the weather icon
+// function bgUpdate(){
+// if (weatherIcon==='10d'||'02d') {
+//   //change css to yellow/sunny
+//   console.log("i'm trying to change the color")
+//   document.body.style.backgroundImage="linear-gradient(rgb(212, 131, 10), rgb(140, 200, 240))";
+// } else if (weatherIcon==='03d'||'04d'||'50d') {
+//   //change css to grey/overcast
+//   document.body.style.backgroundImage="linear-gradient(rgb(46,46,46), rgb(140, 200, 240))"
+// } else if (weatherIcon==='09d'||'10d'||'11d'||'13d') {
+//   //change css to blue/precipitation
+// }
+// }
+
+function bgUpdate(){
+  switch (weatherIcon) {
+    case '01d': document.getElementById('background').style.backgroundImage="linear-gradient(rgb(245, 202, 61), white)"
+      break;
+    case '02d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(136, 161, 185), white)'
+      break;
+    case '03d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(65, 93, 95), white)'
+      break;
+    case '04d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(143, 188, 209), white)';
+      break;
+    case '09d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(99, 107, 226), white)'
+      break;
+    case '10d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(61, 79, 245), white)'
+      break;
+    case '11d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(22, 0, 121), white)'
+      break;
+    case '13d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(82, 155, 240), white)'
+      break;
+    case '50d': document.getElementById('background').style.backgroundImage='linear-gradient(rgb(70, 69, 68), white)'
+      break;
+    case 'none': document.getElementById('background').style.backgroundImage="linear-gradient(rgb(138, 76, 117), rgb(255, 255, 255))"
+  };
+  console.log('this is running')
 }
