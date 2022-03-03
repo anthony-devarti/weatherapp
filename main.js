@@ -69,9 +69,29 @@ function getGeo(){
     lat=crd.latitude;
     lon=crd.longitude;
     weatherLink = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${appID}`
-    getWeather();    
+    async function geoWeather() {
+      try{
+        //explains what the function is waiting for
+          let response = await axios.get(weatherLink)
+          //console.log(response);
+          city = response.data.name
+          tempK = response.data.main.temp;
+          weatherIcon = response.data.weather[0].icon;
+          condition = response.data.weather[0].main;
+          pushText();
+          document.getElementById("result").style.display="block";
+          //console.log(city)
+          //console.log(weatherIcon);
+          //console.log(condition);
+          bgUpdate();
+      } catch (error) {
+        console.error('error');
+        //error function should go in here as well
+        whoopsie();   
+      } 
+    }
+    geoWeather();
   }
-
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
