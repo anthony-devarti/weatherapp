@@ -11,7 +11,7 @@ let appID = 'b18094427e022579a39c568a994093a0'
 let lat=85.04 //this is a placeholder and should be replaced with user input
 let lon=84.50 //this is also a placeholder
 let weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
-let geoWeatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
+//let geoWeatherLink ='';
 
 
 //submitZip function should excecute on click and grab the zip from the entry form
@@ -20,7 +20,7 @@ let geoWeatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${user
 async function getWeather() {
   try{
     //explains what the function is waiting for
-      let response = await axios.get(weatherLink)
+      let response = await axios.get(WeatherLink)
       console.log(response);
       //weatherObject = await response.json;
       city = response.data.name
@@ -68,11 +68,11 @@ function getGeo(){
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
-    // lat=crd.latitude;
-    // lon=crd.longitude;
+    //lat=crd.latitude;
+    //lon=crd.longitude;
     weatherLink = `https://api.openweathermap.org/geo/1.0/reverse?lat=${crd.latitude}&lon=${crd.longitude}&appid=${appID}`
     console.log(weatherLink)
-    getWeather();
+    
   }
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -80,7 +80,7 @@ function getGeo(){
 
 
   navigator.geolocation.getCurrentPosition(success, error, options);
-
+  getWeather();
   
 };
 
