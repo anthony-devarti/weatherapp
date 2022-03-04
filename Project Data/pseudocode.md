@@ -46,9 +46,10 @@ temperature: in Kelvin (this seems to be the default value that the api is retur
 temperature: in celsius
 condition: 
 ]
+set up and declare individual variables and try to tackle making this into a single object after geolocation is working
 
-use querySelector? to print these properties into their appropriate fields on the page.
-have all of the fields visible in the weatherObject
+<!-- use querySelector? to print these properties into their appropriate fields on the page.
+have all of the fields visible in the weatherObject -->
 
 let tempCelsius
 function makeCelsius(){
@@ -82,7 +83,14 @@ function findCity(userInput) {
         make sure not to have the return for this function above redefining these variables, or it won't continue.
 }
 
-if time to complete > 30000ms && zipcode === field, second error page explaining why they did a bad thing.
+function pullUp{
+    hides each of the info cards by making their display setting=none
+    call this function on focus
+}
+
+onfocus event listener to execute the pullup function and to clear out the variables so they are set to 0
+
+<!-- if time to complete > 30000ms && zipcode === field, second error page explaining why they did a bad thing. -->
 
 https://developer.mozilla.org/en-US/docs/Web/API/Response/Response (is this relevant towards the goal of making the response I get from the api into something usable?)
 
@@ -102,10 +110,7 @@ function update() {
     some sort of update function that tries to set the state of the weatherObject from empty to the correct state
 }
 
-backgroundUpdater() {
+bagUpdate() {
     case switch for condition and pushes different instructions to css page based on condition
-}
-
-addData(object) {
-    data.push(object)
+    document.getElementByID("weathercond")style....
 }
