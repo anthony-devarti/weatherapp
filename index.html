@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body id="background">
+<div class="">
+    <h1 class="title m-3">Weather App</h1>
+
+    <div class="text-center">
+        <div class="card m-1=5">
+            <h5 class="card-header">Choose Your Location</h5>
+            <div class="card-body">
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="zip" class="sr-only">Zip Code</label>
+                    <input type="text" onfocus="pullUp()" class="input" input name="zip" id="zip" placeholder="50210">
+                </div>
+                <div class="button">
+                    <button type="submit" id="go" class="btn btn-dark m3">GO</button><button type="geolocator" class="btn btn-dark m-3">Find Me</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="alert alert-warning mt-3" id="error" role="alert">Please enter a valid zip code.</div>
+
+    <div id="result" class="text-center mw-80">
+        <div class="card m-3">
+            <h5 class="card-header">City</h5>
+            <div class="card-body">
+            <p id="city" class="card-text">This is where the city name will go.</p>
+            </div>
+        </div>
+
+        <div class="card m-3">
+        <h5 class="card-header">Temperature</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <p id="kelvin" class="card-text">K</p>
+                        </div>
+                        <div class="col">
+                            <p id="farenheit" class="card-text">F</p>
+                        </div>
+                        <div class="col">
+                            <p id="celsius" class="card-text">C</p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="card m-3">
+            <h5 class="card-header">Condition</h5>
+            <div class="card-body">
+            <p id="condition" class="card-text">This is where the weather condition goes.</p>
+            </div>
+        </div>
+
+        <div class="card m-3">
+            <h5 class="card-header">Other Info</h5>
+            <div class="card-body">
+            <p id="other" class="card-text">This is where other info will go.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

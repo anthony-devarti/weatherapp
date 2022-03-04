@@ -1,0 +1,70 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    color: rgb(0, 0, 0);
+    background-image: linear-gradient(rgb(138, 76, 117), rgb(255, 255, 255)); /*maybe this can change based on the weather output?*/
+
+}
+
+h1 {
+    color:white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+
+.card {
+    min-width: 400px;
+}
+
+.alert {
+    display:none;
+}
+
+#result {
+    display:none;
+}
+
+.clearsky{
+    background-image: linear-gradient(rgb(245, 202, 61), white);
+}
+.basic{
+    background-image: linear-gradient(rgb(165, 155, 164));
+}
+.fewcloud{
+    background-image: linear-gradient(rgb(136, 161, 185), white);
+}
+
+.scatteredclouds{
+    background-image: linear-gradient(rgb(65, 93, 95), white);
+}
+
+.brokenclouds{
+    background-image: linear-gradient(rgb(143, 188, 209), white);
+}
+
+.showerrain {
+    background-image: linear-gradient(rgb(99, 107, 226), white);
+}
+
+.rain{
+    background-image: linear-gradient(rgb(61, 79, 245), white);
+}
+
+.thunderstorm{
+    background-image: linear-gradient(rgb(22, 0, 121), white);
+}
+
+.snow{
+    background-image: linear-gradient(rgb(82, 155, 240), white);
+}
+
+.mist{
+    background-image: linear-gradient(rgb(70, 69, 68), white);
+}

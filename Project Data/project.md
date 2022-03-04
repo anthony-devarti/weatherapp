@@ -95,17 +95,9 @@ If you finish early
 Add info to your project's README.md
 README.md Best Practices
 Share links and resources from this week to the Help slack channel.
-Resources
-Ask questions 
-Learn more about Good GitHub Practices
-Bootstrap
-W3 schools local storage
-Bootstrap hide element
-JavaScript Transitions
-Wiki page about SPA
-PWA intro
-NPM - Axios
-Bootstrap
 
-W3 schools local storage
-API call/timeout visualization
+
+API for weather:
+    api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={b18094427e022579a39c568a994093a0}
+
+    https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=minutely,hourly,daily,alerts&appid=b18094427e022579a39c568a994093a0
