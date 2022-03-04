@@ -1,3 +1,4 @@
+//initialization and variable declaration
 let city
 let condition
 let weatherIcon
@@ -10,6 +11,7 @@ let appID = 'b18094427e022579a39c568a994093a0'
 let lat=85.04 //this is a placeholder and should be replaced with user input
 let lon=84.50 //this is also a placeholder
 let weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
+let geoWeatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
 
 
 //submitZip function should excecute on click and grab the zip from the entry form
@@ -19,8 +21,8 @@ async function getWeather() {
   try{
     //explains what the function is waiting for
       let response = await axios.get(weatherLink)
-      //console.log(response);
-      weatherObject = await response.json;
+      console.log(response);
+      //weatherObject = await response.json;
       city = response.data.name
       tempK = response.data.main.temp;
       weatherIcon = response.data.weather[0].icon;
@@ -41,7 +43,7 @@ async function getWeather() {
 
 document.getElementById("go").addEventListener("click", submit);
 
-
+//GO button for use with a zip code
 function submit() {
   document.getElementById("error").style.display="none";
   userZip = document.getElementById('zip').value; //why is this not redefining the userZip variable?
@@ -66,31 +68,11 @@ function getGeo(){
     console.log(`Latitude : ${crd.latitude}`);
     console.log(`Longitude: ${crd.longitude}`);
     console.log(`More or less ${crd.accuracy} meters.`);
-    lat=crd.latitude;
-    lon=crd.longitude;
-    weatherLink = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${appID}`
-    async function geoWeather() {
-      try{
-        //explains what the function is waiting for
-          let response = await axios.get(weatherLink)
-          //console.log(response);
-          city = response.data.name
-          tempK = response.data.main.temp;
-          weatherIcon = response.data.weather[0].icon;
-          condition = response.data.weather[0].main;
-          pushText();
-          document.getElementById("result").style.display="block";
-          //console.log(city)
-          //console.log(weatherIcon);
-          //console.log(condition);
-          bgUpdate();
-      } catch (error) {
-        console.error('error');
-        //error function should go in here as well
-        whoopsie();   
-      } 
-    }
-    geoWeather();
+    // lat=crd.latitude;
+    // lon=crd.longitude;
+    weatherLink = `https://api.openweathermap.org/geo/1.0/reverse?lat=${crd.latitude}&lon=${crd.longitude}&appid=${appID}`
+    console.log(weatherLink)
+    getWeather();
   }
   function error(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
