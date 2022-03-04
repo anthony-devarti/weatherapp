@@ -48,6 +48,7 @@ function submit() {
   weatherLink = `https://api.openweathermap.org/data/2.5/weather?zip=${userZip},us&appid=${appID}`;
   console.log(userZip)
   getWeather();
+  bgUpdate();
 }
 
 function pullUp(){
